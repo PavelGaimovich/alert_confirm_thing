@@ -30,7 +30,11 @@
       display: inline-block;
       margin: 10px 15px;
     }
-
+    .dialog-alert-box {
+      position: relative;
+      display: inline-block;
+      margin: 10px 65px;
+    }
     .dialog-btn {
       border: 2px solid #c3f1f2;
       background-color: #c3f1f2;
@@ -62,26 +66,33 @@
       <span class="dialog-headerText js-dialog-headerText">Text to confirm</span>
     </div>
     <div>
-      <div class="dialog-btn-box">
-        <a href="#" class="dialog-btn dialog-btn-submit js-dialog-btn-submit">Yes</a>
+      <div class="js-confirm-buttons">
+        <div class="dialog-btn-box">
+          <a href="#" class="dialog-btn dialog-btn-submit js-dialog-btn-submit">Yes</a>
+        </div>
+        <div class="dialog-btn-box">
+          <a href="#" class="dialog-btn dialog-btn-refuse js-dialog-btn-refuse">No</a>
+        </div>
       </div>
-      <div class="dialog-btn-box">
-        <a href="#" class="dialog-btn dialog-btn-refuse js-dialog-btn-refuse">No</a>
+      <div class="js-alert-button">
+        <div class="dialog-alert-box">
+          <a href="#" class="dialog-btn dialog-btn-submit js-dialog-btn-submit">Ok</a>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Testing manual confirm messages -->
   <div class="main"></div>
-<script src="main.js"></script>
+<script src="dialog.js"></script>
 <script>
-  manualConfirm(
+  Dialog.manualConfirm(
     'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet, incidunt?',
     function(){
-      document.getElementsByClassName('main')[0].innerText = 'Yes';
+      Dialog.manualAlert('You choose Yes');
     },
     function(){
-      document.getElementsByClassName('main')[0].innerText = 'No';
+      Dialog.manualAlert('You choose No');
     }
   );
 </script>
